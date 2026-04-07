@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #0a0a0a;
+  --gold: #C9A84C;
+  --emerald-glow: rgba(16, 185, 129, 0.4);
+  --rose-glow: rgba(225, 29, 72, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.border-gold {
+  border-color: var(--gold);
+}
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.1);
+}
+
+.btn-buy-hero:hover {
+  background-color: #065f46 !important;
+  color: white !important;
+  box-shadow: 0 0 30px var(--emerald-glow);
+  transform: translateY(-2px);
+}
+
+.btn-sell-hero:hover {
+  background-color: #881337 !important;
+  color: white !important;
+  border-color: #881337 !important;
+  box-shadow: 0 0 30px var(--rose-glow);
+  transform: translateY(-2px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 80s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
