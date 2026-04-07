@@ -22,6 +22,21 @@ import {
   HelpCircle
 } from 'lucide-react';
 
+const preloaderStyles = document.createElement('style');
+preloaderStyles.textContent = `
+@keyframes preloader-spin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+@keyframes preloader-spin-reverse { 0%{transform:rotate(0deg)} 100%{transform:rotate(-360deg)} }
+@keyframes preloader-fade-in { 0%{opacity:0;transform:translateY(8px)} 100%{opacity:1;transform:translateY(0)} }
+@keyframes preloader-line { 0%{width:0} 100%{width:48px} }
+@keyframes preloader-exit { 0%{opacity:1} 100%{opacity:0;visibility:hidden} }
+.preloader-ring-outer{animation:preloader-spin 3s linear infinite}
+.preloader-ring-inner{animation:preloader-spin-reverse 1.8s linear infinite}
+.preloader-text{animation:preloader-fade-in .6s ease-out .3s both}
+.preloader-line{animation:preloader-line .8s ease-out .5s both}
+.preloader-exit{animation:preloader-exit .6s ease-in-out forwards}
+`;
+document.head.appendChild(preloaderStyles);
+
 // --- CUSTOM HOOKS ---
 
 const useScrollReveal = (threshold = 0.1) => {
@@ -434,8 +449,37 @@ const ContactForm = () => {
   );
 };
 
+const Preloader = ({ onDone }) => {
+  const [exiting, setExiting] = useState(false);
+  useEffect(() => {
+    const a = setTimeout(() => setExiting(true), 2000);
+    const b = setTimeout(onDone, 2600);
+    return () => { clearTimeout(a); clearTimeout(b); };
+  }, [onDone]);
+
+  return (
+    <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a0a] ${exiting ? 'preloader-exit' : ''}`}>
+      <div className="flex flex-col items-center gap-6">
+        <div className="relative w-20 h-20">
+          <div className="absolute inset-0 border border-[#C9A84C]/20 rounded-full preloader-ring-outer" />
+          <div className="absolute inset-1.5 border-t-2 border-[#C9A84C] rounded-full preloader-ring-inner" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-serif text-3xl font-bold text-[#C9A84C]">A</span>
+          </div>
+        </div>
+        <div className="flex flex-col items-center gap-3 preloader-text">
+          <span className="font-serif text-xl tracking-[0.35em] text-white/80 uppercase">Asseton</span>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent preloader-line" />
+          <span className="text-[9px] uppercase tracking-[0.3em] text-white/25 mt-1">#1 Broker prémiových .CZ domén</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // --- MAIN APP ---
 export default function App() {
+  const [loading, setLoading] = useState(true);
   const [activeFaq, setActiveFaq] = useState(null);
 
   const faqs = [
@@ -468,6 +512,12 @@ export default function App() {
     { name: "jirexo.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(168, 85, 247, 0.05)" },
     { name: "elobey.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(168, 85, 247, 0.05)" },
   ];
+
+if (loading) return <Preloader onDone={() => setLoading(false)} />;  // ← tady
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white/90 selection:bg-[#C9A84C] selection:text-black">
+      <Navbar />
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white/90 selection:bg-[#C9A84C] selection:text-black">
