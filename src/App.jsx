@@ -513,11 +513,7 @@ export default function App() {
     { name: "elobey.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(168, 85, 247, 0.05)" },
   ];
 
-if (loading) return <Preloader onDone={() => setLoading(false)} />;  // ← tady
-
-  return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white/90 selection:bg-[#C9A84C] selection:text-black">
-      <Navbar />
+if (loading) return <Preloader onDone={() => setLoading(false)} />;
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white/90 selection:bg-[#C9A84C] selection:text-black">
