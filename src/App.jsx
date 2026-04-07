@@ -388,7 +388,7 @@ const ContactForm = () => {
       </div>
       
       <div className="space-y-2">
-        <label className="block text-sm font-semibold uppercase tracking-widest text-black/80">Zájmová / Nabízená Doména (volitelné)</label>
+        <label className="block text-sm font-semibold uppercase tracking-widest text-black/80">Doména</label>
         <input 
           type="text" 
           className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-black focus:bg-white/20 transition-colors placeholder:text-black/40"
