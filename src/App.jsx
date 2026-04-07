@@ -19,8 +19,7 @@ import {
   Clock,
   CheckCircle,
   Key,
-  HelpCircle,
-  Globe
+  HelpCircle
 } from 'lucide-react';
 
 // --- CUSTOM HOOKS ---
@@ -92,7 +91,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Filozofie', href: '#filozofie' },
     { name: 'Služby', href: '#sluzby' },
-    { name: 'NACENIT DOMÉNU', href: '#oceneni', icon: <Zap size={14} className="mr-1.5 text-blue-400" /> },
+    { name: 'NACENIT DOMÉNU', href: '#oceneni', icon: <Zap size={14} className="mr-1.5 text-[#C9A84C]" /> },
     { name: 'Domény', href: '#domeny' },
     { name: 'Kontakt', href: '#kontakt' },
   ];
@@ -108,13 +107,13 @@ const Navbar = () => {
           <span className="inline-block transition-all duration-500 group-hover:font-black group-hover:tracking-[0.15em]">
             Asseton
           </span>
-          <span className="text-blue-500">.</span>
+          <span className="text-[#C9A84C]">.</span>
         </div>
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex space-x-8 text-sm uppercase tracking-widest text-white/70">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="hover:text-blue-400 transition-colors flex items-center">
+            <a key={link.name} href={link.href} className="hover:text-[#C9A84C] transition-colors flex items-center">
               {link.icon && link.icon}
               {link.name}
             </a>
@@ -122,7 +121,7 @@ const Navbar = () => {
         </div>
 
         {/* DESKTOP CTA */}
-        <a href="#kontakt" className="hidden md:inline-flex items-center justify-center px-4 lg:px-6 py-2 border border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white transition-all duration-300 uppercase tracking-wider text-xs font-semibold">
+        <a href="#kontakt" className="hidden md:inline-flex items-center justify-center px-4 lg:px-6 py-2 border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black transition-all duration-300 uppercase tracking-wider text-xs font-semibold">
           Konzultace Zdarma
         </a>
 
@@ -151,7 +150,7 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="block py-3 text-sm uppercase tracking-widest text-white/70 hover:text-blue-400 transition-colors border-b border-white/5"
+              className="block py-3 text-sm uppercase tracking-widest text-white/70 hover:text-[#C9A84C] transition-colors border-b border-white/5"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="flex items-center">
@@ -162,7 +161,7 @@ const Navbar = () => {
           ))}
           <a 
             href="#kontakt" 
-            className="block text-center py-3 border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 uppercase tracking-wider text-xs font-semibold mt-4"
+            className="block text-center py-3 border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C] hover:text-black transition-all duration-300 uppercase tracking-wider text-xs font-semibold mt-4"
             onClick={() => setMobileMenuOpen(false)}
           >
             Konzultace Zdarma
@@ -224,32 +223,32 @@ const ValuationForm = () => {
   return (
     <div className="bg-[#1a1a1a] p-6 md:p-8 lg:p-12 border border-white/5 relative overflow-hidden group">
       <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-        <Calculator size={80} className="text-blue-500 md:w-[120px] md:h-[120px]" />
+        <Calculator size={80} className="text-[#C9A84C] md:w-[120px] md:h-[120px]" />
       </div>
       
       <form onSubmit={handleValuationSubmit} className="relative z-10 space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="block text-xs uppercase tracking-widest text-blue-400 font-semibold">Název domény *</label>
+            <label className="block text-xs uppercase tracking-widest text-[#C9A84C] font-semibold">Název domény *</label>
             <input 
               type="text" 
               name="domain"
               required
-              placeholder="např. reality.cz"
-              className="w-full bg-black/40 border border-white/10 text-white px-4 py-4 focus:outline-none focus:border-blue-500 transition-colors placeholder:text-white/20"
+              placeholder="např. investice.cz"
+              className="w-full bg-black/40 border border-white/10 text-white px-4 py-4 focus:outline-none focus:border-[#C9A84C] transition-colors placeholder:text-white/20"
               value={domain}
               onChange={(e) => setDomain(e.target.value)}
               disabled={status === 'submitting'}
             />
           </div>
           <div className="space-y-2">
-            <label className="block text-xs uppercase tracking-widest text-blue-400 font-semibold">Váš e-mail *</label>
+            <label className="block text-xs uppercase tracking-widest text-[#C9A84C] font-semibold">Váš e-mail *</label>
             <input 
               type="email" 
               name="email"
               required
               placeholder="vás@email.cz"
-              className="w-full bg-black/40 border border-white/10 text-white px-4 py-4 focus:outline-none focus:border-blue-500 transition-colors placeholder:text-white/20"
+              className="w-full bg-black/40 border border-white/10 text-white px-4 py-4 focus:outline-none focus:border-[#C9A84C] transition-colors placeholder:text-white/20"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={status === 'submitting'}
@@ -263,7 +262,7 @@ const ValuationForm = () => {
           className={`w-full py-4 md:py-5 font-semibold uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center space-x-3
             ${(!domain || !email || status === 'submitting') 
               ? 'bg-white/5 text-white/20 cursor-not-allowed border border-white/5' 
-              : 'bg-blue-600 text-white hover:bg-blue-500 border border-blue-600'}`}
+              : 'bg-[#C9A84C] text-black hover:bg-white border border-[#C9A84C]'}`}
         >
           <Zap size={18} />
           <span className="text-xs md:text-sm">
@@ -272,13 +271,13 @@ const ValuationForm = () => {
         </button>
 
         {status === 'success' && (
-          <div className="bg-blue-500/10 border border-blue-500/50 text-blue-400 px-4 py-3 text-center text-sm">
+          <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 text-center text-sm">
             ✅ Požadavek odeslán! Ozveme se vám do 48 hodin.
           </div>
         )}
         {status === 'error' && (
           <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 text-center text-sm">
-            ❌ Chyba při odesílání. Zkuste to prosím znovu nebo nás kontaktujte přímo na asseton.invest@outlook.com
+            ❌ Chyba při odesílání. Zkuste to prosím znovu nebo nás kontaktujte přímo na asseton@outlook.com
           </div>
         )}
         
@@ -350,7 +349,7 @@ const ContactForm = () => {
         <label className="block text-sm font-semibold uppercase tracking-widest text-black/80">Váš záměr</label>
         <select 
           required
-          className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white/20 transition-colors"
+          className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-black focus:bg-white/20 transition-colors"
           value={formData.intent}
           onChange={(e) => setFormData({...formData, intent: e.target.value})}
           disabled={status === 'submitting'}
@@ -367,7 +366,7 @@ const ContactForm = () => {
           <input 
             type="text" 
             required
-            className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white/20 transition-colors placeholder:text-black/40"
+            className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-black focus:bg-white/20 transition-colors placeholder:text-black/40"
             placeholder="Jan Novák"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -379,7 +378,7 @@ const ContactForm = () => {
           <input 
             type="email" 
             required
-            className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white/20 transition-colors placeholder:text-black/40"
+            className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-black focus:bg-white/20 transition-colors placeholder:text-black/40"
             placeholder="jan@firma.cz"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -389,10 +388,10 @@ const ContactForm = () => {
       </div>
       
       <div className="space-y-2">
-        <label className="block text-sm font-semibold uppercase tracking-widest text-black/80">Zájmová / Nabízená Doména (volitelné)</label>
+        <label className="block text-sm font-semibold uppercase tracking-widest text-black/80">Doména</label>
         <input 
           type="text" 
-          className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white/20 transition-colors placeholder:text-black/40"
+          className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-black focus:bg-white/20 transition-colors placeholder:text-black/40"
           placeholder="např. reality.cz"
           value={formData.domain}
           onChange={(e) => setFormData({...formData, domain: e.target.value})}
@@ -405,7 +404,7 @@ const ContactForm = () => {
         <textarea 
           required 
           rows="4"
-          className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-blue-600 focus:bg-white/20 transition-colors placeholder:text-black/40 resize-none"
+          className="w-full bg-black/5 border border-black/20 text-black px-4 py-3 focus:outline-none focus:border-black focus:bg-white/20 transition-colors placeholder:text-black/40 resize-none"
           placeholder="Dobrý den, chci s vámi probrat..."
           value={formData.message}
           onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -416,19 +415,19 @@ const ContactForm = () => {
       <button 
         type="submit" 
         disabled={status === 'submitting'}
-        className="w-full px-8 py-4 md:py-5 bg-blue-600 text-white font-semibold uppercase tracking-widest hover:bg-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full px-8 py-4 md:py-5 bg-black text-white font-semibold uppercase tracking-widest hover:bg-white hover:text-black border border-transparent hover:border-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === 'submitting' ? 'Odesílám...' : 'Odeslat nezávaznou poptávku'}
       </button>
 
       {status === 'success' && (
-        <div className="bg-blue-500/10 border border-blue-500/50 text-blue-700 px-4 py-3 text-center text-sm font-medium font-serif italic">
+        <div className="bg-green-500/10 border border-green-500/50 text-green-700 px-4 py-3 text-center text-sm font-medium">
           ✅ Poptávka odeslána! Ozveme se vám do 24 hodin.
         </div>
       )}
       {status === 'error' && (
         <div className="bg-red-500/10 border border-red-500/50 text-red-700 px-4 py-3 text-center text-sm font-medium">
-          ❌ Chyba při odesílání. Kontaktujte nás prosím přímo: asseton.invest@outlook.com
+          ❌ Chyba při odesílání. Kontaktujte nás prosím přímo: asseton@outlook.com
         </div>
       )}
     </form>
@@ -459,52 +458,52 @@ export default function App() {
   ];
 
   const portfolioDomains = [
-    { name: "sos.cz", type: "ULTRA PREMIUM", category: "Krizové služby & Bezpečnost", price: "Na dotaz", accent: "rgba(59, 130, 246, 0.15)" },
+    { name: "sos.cz", type: "ULTRA PREMIUM", category: "Krizové služby & Bezpečnost", price: "Na dotaz", accent: "rgba(201, 168, 76, 0.1)" },
     { name: "kralzdravi.cz", type: "PREMIUM", category: "Zdraví & E-commerce", price: "450 000 Kč", accent: "rgba(255, 255, 255, 0.05)" },
-    { name: "nejkupony.cz", type: "HIGH TRAFFIC", category: "Slevy & Affiliate", price: "350 000 Kč", accent: "rgba(59, 130, 246, 0.1)" },
+    { name: "nejkupony.cz", type: "HIGH TRAFFIC", category: "Slevy & Affiliate", price: "350 000 Kč", accent: "rgba(64, 150, 255, 0.05)" },
     { name: "autavyhodne.cz", type: "PREMIUM", category: "Automotive & Prodej", price: "280 000 Kč", accent: "rgba(255, 255, 255, 0.05)" },
     { name: "svetlasky.cz", type: "BRAND", category: "Lifestyle & Seznamka", price: "180 000 Kč", accent: "rgba(255, 105, 180, 0.05)" },
     { name: "geoplany.cz", type: "NICHE", category: "Geodézie & Reality", price: "150 000 Kč", accent: "rgba(34, 197, 94, 0.05)" },
     { name: "armysvet.cz", type: "BRAND", category: "Outdoor & Military", price: "120 000 Kč", accent: "rgba(255, 255, 255, 0.05)" },
-    { name: "jirexo.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(59, 130, 246, 0.05)" },
-    { name: "elobey.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(59, 130, 246, 0.05)" },
+    { name: "jirexo.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(168, 85, 247, 0.05)" },
+    { name: "elobey.cz", type: "BRANDABLE", category: "Univerzální Corporate", price: "45 000 Kč", accent: "rgba(168, 85, 247, 0.05)" },
   ];
 
   return (
-    <div className="min-h-screen bg-[#06080a] text-white/90 selection:bg-blue-500 selection:text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white/90 selection:bg-[#C9A84C] selection:text-black">
       <Navbar />
 
       {/* HERO SECTION */}
       <header className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-20 px-4">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-blue-600 opacity-[0.06] rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-[#C9A84C] opacity-[0.03] rounded-full blur-[120px] pointer-events-none"></div>
         
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <FadeInSection delay={100}>
-            <div className="inline-flex items-center space-x-2 border border-blue-500/20 rounded-full px-3 md:px-4 py-1.5 mb-6 md:mb-8 bg-blue-500/5 backdrop-blur-sm">
-              <Globe className="w-3 h-3 md:w-4 md:h-4 text-blue-400" />
-              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-blue-200/80">#1 Broker Prémiových .cz Domén</span>
+            <div className="inline-flex items-center space-x-2 border border-white/10 rounded-full px-3 md:px-4 py-1.5 mb-6 md:mb-8 bg-white/5 backdrop-blur-sm">
+              <Award className="w-3 h-3 md:w-4 md:h-4 text-[#C9A84C]" />
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-white/80">#1 Broker Prémiových .cz Domén</span>
             </div>
           </FadeInSection>
           
           <FadeInSection delay={300}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold leading-tight mb-6 md:mb-8 text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold leading-tight mb-6 md:mb-8">
               Domény jako <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic font-medium tracking-tight">digitální realita.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] to-[#E3C878] italic font-medium">strategické aktivum.</span>
             </h1>
           </FadeInSection>
 
           <FadeInSection delay={500}>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-400 font-light max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 font-light max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
               Neexistuje druhá šance na první dojem. Získejte absolutní monopol ve svém oboru a ovládněte digitální prostor dříve než vaše konkurence.
             </p>
           </FadeInSection>
 
           <FadeInSection delay={700}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-              <a href="#kontakt" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-blue-600 text-white font-bold uppercase tracking-[0.2em] text-xs md:text-sm transition-all duration-300 flex items-center justify-center group shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:bg-blue-500">
+              <a href="#kontakt" className="btn-buy-hero w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-[#C9A84C] text-black font-bold uppercase tracking-[0.2em] text-xs md:text-sm transition-all duration-300 flex items-center justify-center group shadow-xl">
                 KOUPIT DOMÉNU
               </a>
-              <a href="#kontakt" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-slate-700 text-slate-300 font-bold uppercase tracking-[0.2em] text-xs md:text-sm transition-all duration-300 flex items-center justify-center hover:border-blue-500 hover:text-blue-400">
+              <a href="#kontakt" className="btn-sell-hero w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-[#C9A84C] text-[#C9A84C] font-bold uppercase tracking-[0.2em] text-xs md:text-sm transition-all duration-300 flex items-center justify-center">
                 PRODAT DOMÉNU
               </a>
             </div>
@@ -513,21 +512,21 @@ export default function App() {
       </header>
 
       {/* STATS */}
-      <div className="border-y border-white/5 bg-blue-900/5">
+      <div className="border-y border-white/5 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12 text-center">
             {[
-              { label: "Diskrétnost", value: 100, suffix: "%", icon: <Lock className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-blue-400" /> },
-              { label: "Monitoring Trhu", value: 24, suffix: "/7", icon: <Clock className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-blue-400" /> },
-              { label: "Rychlost Ocenění", value: 48, suffix: "h", icon: <Zap className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-blue-400" /> },
-              { label: "Průměrná Úspora", value: 35, suffix: "%", icon: <TrendingUp className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-blue-400" /> },
+              { label: "Diskrétnost", value: 100, suffix: "%", icon: <Lock className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-[#C9A84C]" /> },
+              { label: "Monitoring Trhu", value: 24, suffix: "/7", icon: <Clock className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-[#C9A84C]" /> },
+              { label: "Rychlost Ocenění", value: 48, suffix: "h", icon: <Zap className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-[#C9A84C]" /> },
+              { label: "Průměrná Úspora", value: 35, suffix: "%", icon: <TrendingUp className="w-3 h-3 md:w-4 md:h-4 mx-auto mb-2 text-[#C9A84C]" /> },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col">
                 {stat.icon}
-                <div className="text-3xl md:text-4xl lg:text-5xl text-white mb-2 font-serif">
+                <div className="text-3xl md:text-4xl lg:text-5xl text-[#C9A84C] mb-2 font-serif">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 font-semibold">{stat.label}</div>
+                <div className="text-[10px] md:text-xs uppercase tracking-widest text-white/50">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -539,12 +538,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeInSection>
-              <Brain className="w-6 h-6 md:w-8 md:h-8 text-blue-500 mb-6" />
-              <h2 className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-6 font-semibold">Filozofie</h2>
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif leading-tight mb-8 text-white">
+              <Brain className="w-6 h-6 md:w-8 md:h-8 text-[#C9A84C] mb-6" />
+              <h2 className="text-sm uppercase tracking-[0.3em] text-[#C9A84C] mb-6">Filozofie</h2>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif leading-tight mb-8">
                 Kdo vlastní doménu,<br />vlastní celou kategorii.
               </h3>
-              <div className="space-y-6 text-base md:text-lg text-slate-400 font-light leading-relaxed">
+              <div className="space-y-6 text-base md:text-lg text-white/70 font-light leading-relaxed">
                 <p>
                   Doména již dávno není pouhá technická adresa. Je to nejvzácnější digitální nemovitost v moderní ekonomice. Na nejlukrativnější adrese může stát pouze jeden obchod. 
                 </p>
@@ -554,48 +553,48 @@ export default function App() {
               </div>
             </FadeInSection>
             
-            <FadeInSection delay={200} className="relative h-full min-h-[300px] md:min-h-[400px] border border-blue-500/10 bg-[#0d1117] p-8 md:p-12 flex flex-col justify-center items-center text-center shadow-[0_0_50px_rgba(59,130,246,0.05)]">
-               <Shield className="w-12 h-12 md:w-16 md:h-16 text-blue-500 mb-8 opacity-80" />
-               <h4 className="text-xl md:text-2xl font-serif mb-4 text-white">Ochrana Brandu & Monopol</h4>
-               <p className="text-slate-400 font-light italic">Zajišťujeme domény pro lídry na trhu. Chráníme je před konkurencí a budujeme nedobytné digitální pevnosti.</p>
+            <FadeInSection delay={200} className="relative h-full min-h-[300px] md:min-h-[400px] border border-white/10 bg-[#111] p-8 md:p-12 flex flex-col justify-center items-center text-center glow-gold">
+               <Shield className="w-12 h-12 md:w-16 md:h-16 text-[#C9A84C] mb-8" />
+               <h4 className="text-xl md:text-2xl font-serif mb-4">Ochrana Brandu & Monopol</h4>
+               <p className="text-white/60 font-light">Zajišťujeme domény pro lídry na trhu. Chráníme je před konkurencí a budujeme nedobytné digitální pevnosti.</p>
             </FadeInSection>
           </div>
         </div>
       </section>
 
       {/* SLUŽBY */}
-      <section id="sluzby" className="py-16 md:py-24 lg:py-32 bg-[#090c10] border-y border-white/5">
+      <section id="sluzby" className="py-16 md:py-24 lg:py-32 bg-[#111111] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <FadeInSection className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
-            <Gem className="w-8 h-8 md:w-10 md:h-10 text-blue-500 mx-auto mb-6" />
-            <h2 className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-6 font-semibold">Expertíza</h2>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-white">Exkluzivní Služby</h3>
-            <p className="text-slate-400 font-light text-base md:text-lg">Poskytujeme kompletní servis od úvodní analýzy přes anonymní vyjednávání až po bezpečný převod a escow.</p>
+            <Gem className="w-8 h-8 md:w-10 md:h-10 text-[#C9A84C] mx-auto mb-6" />
+            <h2 className="text-sm uppercase tracking-[0.3em] text-[#C9A84C] mb-6">Expertíza</h2>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6">Exkluzivní Služby</h3>
+            <p className="text-white/60 font-light text-base md:text-lg">Poskytujeme kompletní servis od úvodní analýzy přes anonymní vyjednávání až po bezpečný převod a escow.</p>
           </FadeInSection>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                icon: <Search className="w-6 h-6 md:w-8 md:h-8 text-blue-500" />,
+                icon: <Search className="w-6 h-6 md:w-8 md:h-8 text-[#C9A84C]" />,
                 title: "Stealth Akvizice",
                 desc: "Diskrétní nákup obsazených a zdánlivě neprodejných domén. Vystupujeme jako broker, chráníme vaši identitu a minimalizujeme výkupní cenu."
               },
               {
-                icon: <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-blue-500" />,
+                icon: <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-[#C9A84C]" />,
                 title: "Prodej Portfolií",
                 desc: "Zastupování majitelů premium domén. Vyhledáváme strategické kupce napříč trhem a maximalizujeme návratnost vaší investice při exitu."
               },
               {
-                icon: <BarChart className="w-6 h-6 md:w-8 md:h-8 text-blue-500" />,
+                icon: <BarChart className="w-6 h-6 md:w-8 md:h-8 text-[#C9A84C]" />,
                 title: "Ocenění & Strategie",
                 desc: "Přesné nacenění doménových aktiv pro účely fúzí, akvizic (M&A) nebo auditů. Tvorba dlouhodobé doménové strategie pro korporace."
               }
             ].map((service, idx) => (
               <FadeInSection key={idx} delay={idx * 150}>
-                <div className="group h-full bg-[#0d1117] border border-white/5 p-8 md:p-10 hover:border-blue-500/30 transition-all duration-500">
-                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-500 origin-left text-blue-500">{service.icon}</div>
-                  <h4 className="text-lg md:text-xl font-serif mb-4 text-white group-hover:text-blue-400 transition-colors">{service.title}</h4>
-                  <p className="text-slate-500 font-light leading-relaxed text-sm md:text-base group-hover:text-slate-400 transition-colors">{service.desc}</p>
+                <div className="group h-full bg-[#0a0a0a] border border-white/5 p-8 md:p-10 hover:border-[#C9A84C]/50 transition-colors duration-500">
+                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-500 origin-left">{service.icon}</div>
+                  <h4 className="text-lg md:text-xl font-serif mb-4 text-white group-hover:text-[#C9A84C] transition-colors">{service.title}</h4>
+                  <p className="text-white/50 font-light leading-relaxed text-sm md:text-base">{service.desc}</p>
                 </div>
               </FadeInSection>
             ))}
@@ -608,10 +607,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <FadeInSection>
-              <Scale className="w-6 h-6 md:w-8 md:h-8 text-blue-500 mb-6" />
-              <h2 className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-6 font-semibold">Expertní ocenění</h2>
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-8 text-white">Zjistěte reálnou tržní hodnotu vaší domény</h3>
-              <p className="text-slate-400 font-light text-base md:text-lg leading-relaxed mb-8">
+              <Scale className="w-6 h-6 md:w-8 md:h-8 text-[#C9A84C] mb-6" />
+              <h2 className="text-sm uppercase tracking-[0.3em] text-[#C9A84C] mb-6">Expertní ocenění</h2>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-8">Zjistěte reálnou tržní hodnotu vaší domény</h3>
+              <p className="text-white/60 font-light text-base md:text-lg leading-relaxed mb-8">
                 Nacenění domény je klíčovým krokem pro prodejce i kupce. Automatické generátory často selhávají, protože nezohledňují lokální trh (.cz), aktuální trendy v AI nebo historická data z privátních prodejů.
               </p>
             </FadeInSection>
@@ -624,12 +623,12 @@ export default function App() {
       </section>
 
       {/* PORTFOLIO DOMÉN - SLIDER */}
-      <section id="domeny" className="py-16 md:py-24 lg:py-32 bg-[#090c10] border-y border-white/5 relative overflow-hidden">
+      <section id="domeny" className="py-16 md:py-24 lg:py-32 bg-[#111] border-y border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6 mb-12 md:mb-16 text-center">
           <FadeInSection>
-            <Layers className="w-8 h-8 md:w-10 md:h-10 text-blue-500 mx-auto mb-6" />
-            <h2 className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-6 font-semibold">Portfolio</h2>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 text-white">Aktuálně dostupné prémiové domény</h3>
+            <Layers className="w-8 h-8 md:w-10 md:h-10 text-[#C9A84C] mx-auto mb-6" />
+            <h2 className="text-sm uppercase tracking-[0.3em] text-[#C9A84C] mb-6">Portfolio</h2>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6">Aktuálně dostupné prémiové domény</h3>
           </FadeInSection>
         </div>
 
@@ -638,35 +637,35 @@ export default function App() {
             {[...portfolioDomains, ...portfolioDomains].map((domain, idx) => (
               <div 
                 key={idx}
-                className="bg-[#0d1117] border border-white/5 hover:border-blue-500/40 transition-all duration-500 flex flex-col w-[280px] sm:w-[320px] md:w-[350px] mx-3 md:mx-4 p-6 md:p-8 rounded-sm relative overflow-hidden shrink-0 group shadow-lg"
-                style={{ boxShadow: `inset 0 0 30px ${domain.accent}` }}
+                className="bg-[#0a0a0a] border border-white/5 hover:border-[#C9A84C]/40 transition-all duration-500 flex flex-col w-[280px] sm:w-[320px] md:w-[350px] mx-3 md:mx-4 p-6 md:p-8 rounded-sm relative overflow-hidden shrink-0 group"
+                style={{ boxShadow: `inset 0 0 40px ${domain.accent}` }}
               >
-                <div className="absolute top-0 left-0 w-1 h-full opacity-30 group-hover:opacity-100 transition-opacity duration-500 bg-blue-500"></div>
+                <div className="absolute top-0 left-0 w-1 h-full opacity-30 group-hover:opacity-100 transition-opacity duration-500" style={{ backgroundColor: domain.accent.replace('0.05', '0.5').replace('0.1', '0.8') }}></div>
                 <div className="mb-4">
-                  <span className={`text-[9px] font-semibold uppercase tracking-widest px-2 py-1 border rounded-full ${domain.type === 'ULTRA PREMIUM' ? 'border-blue-500 text-blue-400 bg-blue-500/5' : 'border-white/10 text-white/50 bg-white/5'}`}>
+                  <span className={`text-[9px] font-semibold uppercase tracking-widest px-2 py-1 border rounded-full ${domain.type === 'ULTRA PREMIUM' ? 'border-[#C9A84C] text-[#C9A84C] bg-[#C9A84C]/5' : 'border-white/10 text-white/50 bg-white/5'}`}>
                     {domain.type}
                   </span>
                 </div>
-                <h4 className="text-xl md:text-2xl font-serif font-bold text-white mb-1 tracking-wide group-hover:text-blue-400 transition-colors">{domain.name}</h4>
-                <p className="text-slate-500 text-xs font-light mb-6 uppercase tracking-wider">{domain.category}</p>
+                <h4 className="text-xl md:text-2xl font-serif font-bold text-white mb-1 tracking-wide group-hover:text-[#C9A84C] transition-colors">{domain.name}</h4>
+                <p className="text-white/40 text-xs font-light mb-6 uppercase tracking-wider">{domain.category}</p>
                 <div className="flex justify-between items-end">
                   <div>
-                    <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Cena</div>
+                    <div className="text-[10px] text-white/30 uppercase tracking-widest">Cena</div>
                     <div className="text-lg md:text-xl font-serif font-semibold text-white">{domain.price}</div>
                   </div>
                   <a 
-                    href={`mailto:asseton.invest@outlook.com?subject=Zájem o doménu ${domain.name}`} 
-                    className="text-[10px] font-bold uppercase tracking-widest text-blue-400 hover:text-white transition-colors flex items-center"
+                    href={`mailto:asseton@outlook.com?subject=Zájem o doménu ${domain.name}`} 
+                    className="text-[10px] font-bold uppercase tracking-widest text-[#C9A84C] hover:text-white transition-colors flex items-center"
                   >
-                    PROJEVIT ZÁJEM <ArrowRight size={12} className="ml-1" />
+                    MÁM ZÁJEM <ArrowRight size={12} className="ml-1" />
                   </a>
                 </div>
               </div>
             ))}
           </div>
           
-          <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-[#090c10] to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#090c10] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-[#111] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#111] to-transparent z-10 pointer-events-none"></div>
         </div>
       </section>
 
@@ -674,26 +673,26 @@ export default function App() {
       <section className="py-16 md:py-24 lg:py-32 relative">
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <FadeInSection className="text-center mb-12 md:mb-16">
-             <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-blue-500 mx-auto mb-6" />
-             <h2 className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-4 font-semibold">FAQ</h2>
-             <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white">Často kladené otázky</h3>
+             <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-[#C9A84C] mx-auto mb-6" />
+             <h2 className="text-sm uppercase tracking-[0.3em] text-[#C9A84C] mb-4">FAQ</h2>
+             <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif">Často kladené otázky</h3>
           </FadeInSection>
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <FadeInSection key={idx} delay={idx * 100}>
-                <div className="border border-white/5 bg-[#0d1117] transition-all hover:border-blue-500/20">
+                <div className="border border-white/10 bg-[#111]">
                   <button 
                     className="w-full text-left px-6 md:px-8 py-5 md:py-6 flex justify-between items-center focus:outline-none"
                     onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                   >
-                    <span className="font-serif text-base md:text-lg pr-8 text-slate-200">{faq.q}</span>
-                    <ChevronDown className={`w-5 h-5 text-blue-500 transition-transform duration-300 flex-shrink-0 ${activeFaq === idx ? 'rotate-180' : ''}`} />
+                    <span className="font-serif text-base md:text-lg pr-8">{faq.q}</span>
+                    <ChevronDown className={`w-5 h-5 text-[#C9A84C] transition-transform duration-300 flex-shrink-0 ${activeFaq === idx ? 'rotate-180' : ''}`} />
                   </button>
                   <div 
                     className={`px-6 md:px-8 overflow-hidden transition-all duration-500 ease-in-out ${activeFaq === idx ? 'max-h-[800px] pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
                   >
-                    <p className="text-slate-400 font-light leading-relaxed whitespace-pre-line text-sm md:text-base italic">{faq.a}</p>
+                    <p className="text-white/60 font-light leading-relaxed whitespace-pre-line text-sm md:text-base">{faq.a}</p>
                   </div>
                 </div>
               </FadeInSection>
@@ -703,22 +702,22 @@ export default function App() {
       </section>
 
       {/* CTA / KONTAKT */}
-      <section id="kontakt" className="py-16 md:py-24 lg:py-32 bg-blue-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20"></div>
+      <section id="kontakt" className="py-16 md:py-24 lg:py-32 bg-[#C9A84C] text-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30"></div>
         
         <div className="max-w-4xl mx-auto px-4 md:px-6 relative z-10 text-center">
           <FadeInSection>
-            <Briefcase className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-8 text-white" />
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 md:mb-8 text-white">Připraveni ovládnout trh?</h2>
-            <p className="text-blue-100 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto opacity-90">
+            <Briefcase className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-8 text-black" />
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 md:mb-8">Připraveni ovládnout trh?</h2>
+            <p className="text-black/70 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto">
               Zastupujeme pouze seriózní kupce a prodávající. Pokud chápete hodnotu prémiové domény, spojte se s námi.
             </p>
             
             <ContactForm />
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="mailto:asseton.invest@outlook.com" className="px-8 md:px-10 py-4 md:py-5 bg-white text-blue-700 font-bold uppercase tracking-widest hover:bg-[#06080a] hover:text-white transition-colors duration-300 text-xs md:text-sm shadow-xl">
-                asseton.invest@outlook.com
+              <a href="mailto:asseton@outlook.com" className="px-8 md:px-10 py-4 md:py-5 bg-black text-white font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300 text-xs md:text-sm">
+                asseton@outlook.com
               </a>
             </div>
           </FadeInSection>
@@ -726,17 +725,17 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#06080a] py-8 md:py-12 border-t border-white/5 text-center text-sm text-slate-500">
+      <footer className="bg-[#0a0a0a] py-8 md:py-12 border-t border-white/10 text-center text-sm text-white/40">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="font-serif text-lg md:text-xl text-white tracking-widest uppercase">
-            Asseton<span className="text-blue-500">.</span>
+            Asseton<span className="text-[#C9A84C]">.</span>
           </div>
-          <div className="text-xs md:text-sm font-medium">
-            &copy; {new Date().getFullYear()} ASSETON. Všechna práva vyhrazena. Profesionální Brokerage Služby.
+          <div className="text-xs md:text-sm">
+            &copy; {new Date().getFullYear()} ASSETON. Všechna práva vyhrazena. #1 CZ Domain Broker.
           </div>
-          <div className="flex space-x-6 uppercase tracking-widest text-xs font-bold">
-            <a href="#" className="hover:text-blue-400 transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">X / Twitter</a>
+          <div className="flex space-x-6 uppercase tracking-widest text-xs">
+            <a href="#" className="hover:text-[#C9A84C] transition-colors">LinkedIn</a>
+            <a href="#" className="hover:text-[#C9A84C] transition-colors">Twitter</a>
           </div>
         </div>
       </footer>
